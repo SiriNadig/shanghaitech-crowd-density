@@ -9,10 +9,16 @@ This project implements a deep learning model to estimate crowd density from ima
 To generate accurate **crowd density heatmaps** from still RGB images of dense crowds using deep convolutional networks. The final predictions help in identifying zones of congestion and understanding crowd flow patterns.
 
 ---
+**Dataset**: [ShanghaiTech with People Density Map](https://www.kaggle.com/datasets/tthien/shanghaitech-with-people-density-map)
 
-## 📚 Dataset Used
+The dataset is divided into two parts:
 
-**Dataset**: [ShanghaiTech with People Density Map (Part A)](https://www.kaggle.com/datasets/tthien/shanghaitech-with-people-density-map)
+| Part | Description                              | Use Case                       |
+|------|------------------------------------------|--------------------------------|
+| A    | High-density crowd images (e.g. rallies, protests, public gatherings) | Suitable for dense crowd estimation (used in this project) |
+| B    | Low-density scenes (e.g. streets, public spaces)        | Suitable for sparser scenes with fewer people |
+
+> ✅ **This project uses Part A** to focus on **challenging, high-density crowd scenes** for testing model robustness.
 
 ### Folder Structure:
 
@@ -24,9 +30,6 @@ ShanghaiTech/
 ├── test_data/
 ├── images/
 └── ground-truth-h5/
-
-> **Part A** features high-density crowd images (e.g., public gatherings, protests, stadiums).
-
 ---
 
 ## 🧠 Model Architecture
@@ -37,12 +40,5 @@ The project uses **CSRNet**, which is based on:
 - **Output**: 2D density map estimating the number of people in an image
 
 ---
-
-## 🔧 Installation & Setup
-
-### ✅ Requirements
-
-```bash
-pip install torch torchvision kagglehub matplotlib h5py opencv-python
 
 > 📌 Dataset download and preprocessing is handled automatically in the Colab notebook.
